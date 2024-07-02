@@ -99,7 +99,7 @@ def install_airflow(
         install_command = f"{install_command} . "
     else:
         install_command = f"{install_command} 'apache-airflow=={version}{extras}' "
-        constraints_url = constraints_url or (
+        constraints_url = None if constraints_url == "" else constraints_url or (
             f"https://raw.githubusercontent.com/apache/airflow/"
             f"constraints-{version}/constraints-{_get_major_minor_version(python_version)}.txt"
         )
